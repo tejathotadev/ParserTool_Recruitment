@@ -1,5 +1,6 @@
 # parserTool — Quick start
 
+Testing
 Document parser service (MinerU-based). Works on any laptop **without editing paths**, as long as you run the scripts from this folder.
 
 ## Requirements
