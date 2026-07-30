@@ -6,7 +6,7 @@ $ErrorActionPreference = "Stop"
 $Root = $PSScriptRoot
 Set-Location $Root
 
-if (-not (Test-Path ".\.venv\Scripts\mineru-api.exe")) {
+if (-not (Test-Path ".\.venv\Scripts\python.exe")) {
     Write-Host "ERROR: .venv not ready. Run .\setup.ps1 first." -ForegroundColor Red
     exit 1
 }
@@ -31,6 +31,7 @@ if (Test-Path $envFile) {
     }
 }
 
-Write-Host "Starting parserTool (mineru-api) on http://${hostName}:${port}"
+Write-Host "Starting parserTool on http://${hostName}:${port}"
 Write-Host "Docs: http://${hostName}:${port}/docs"
-& ".\.venv\Scripts\mineru-api.exe" --host $hostName --port ([int]$port)
+# Use python -m (avoids broken uv trampoline on some Windows installs)
+& ".\.venv\Scripts\python.exe" -m mineru.cli.fast_api --host $hostName --port ([int]$port)

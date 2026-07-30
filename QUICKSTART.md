@@ -8,7 +8,22 @@ Document parser service (MinerU-based). Works on any laptop **without editing pa
 - Python **3.10–3.13** (not 3.14)
 - Internet (first install downloads packages / models)
 
-## Windows (3 steps)
+## Windows CMD (recommended)
+
+```cmd
+cd /d "D:\ChatBot\AI Recuritement ChatBot\parser\parserTool"
+setup.bat
+start.bat
+```
+
+Or without scripts (same result):
+
+```cmd
+cd /d "D:\ChatBot\AI Recuritement ChatBot\parser\parserTool"
+.venv\Scripts\python.exe -m mineru.cli.fast_api --host 127.0.0.1 --port 8001
+```
+
+## Windows PowerShell
 
 ```powershell
 cd parserTool
