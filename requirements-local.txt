@@ -1,0 +1,6 @@
+# Local install extras for this workspace (pipeline backend + small missing deps)
+# Prefer editable install from this repo:
+#   pip install -e ".[pipeline]"
+#   pip install -r requirements-local.txt
+
+six>=1.16.0

@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.12
+    commands:
+      - echo "MinerU build — package source only (heavy deps install on EC2)"
+      - python -m pip install --upgrade pip
+
+  build:
+    commands:
+      - echo "Validating MinerU source layout..."
+      - test -f pyproject.toml
+      - test -f mineru/cli/fast_api.py
+      - test -f appspec.yml
+      - test -f scripts/deploy/start_application.sh
+      - python -c "import ast; ast.parse(open('mineru/cli/fast_api.py', encoding='utf-8').read())"
+      - echo "Validation OK"
+
+artifacts:
+  files:
+    - '**/*'
+  exclude-paths:
+    - .venv/**/*
+    - venv/**/*
+    - output/**/*
+    - '**/.git/**/*'
+    - '**/__pycache__/**/*'

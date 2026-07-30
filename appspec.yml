@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /home/ubuntu/minerU
+
+hooks:
+  BeforeInstall:
+    - location: scripts/deploy/before_install.sh
+      timeout: 300
+      runas: ubuntu
+
+  AfterInstall:
+    - location: scripts/deploy/after_install.sh
+      timeout: 3600
+      runas: ubuntu
+
+  ApplicationStart:
+    - location: scripts/deploy/start_application.sh
+      timeout: 600
+      runas: ubuntu
