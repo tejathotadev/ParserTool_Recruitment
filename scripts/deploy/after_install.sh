@@ -1,9 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
-cd /home/ubuntu/minerU
+cd /home/ubuntu/parserTool
 
-chmod +x scripts/deploy/*.sh || true
+chmod +x scripts/deploy/*.sh setup.sh start.sh || true
 
 echo "Creating virtual environment..."
 python3 -m venv venv
@@ -14,7 +14,7 @@ echo "Upgrading pip and installing uv..."
 pip install --upgrade pip
 pip install uv
 
-echo "Installing MinerU [pipeline] (may take 15–40 minutes)..."
+echo "Installing parserTool [pipeline] (may take 15–40 minutes)..."
 uv pip install -e ".[pipeline]"
 pip install -r requirements-local.txt
 
