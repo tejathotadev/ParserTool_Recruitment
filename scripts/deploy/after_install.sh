@@ -5,6 +5,10 @@ cd /home/ubuntu/parserTool
 
 chmod +x scripts/deploy/*.sh setup.sh start.sh || true
 
+echo "Installing system libraries for OpenCV (libGL)..."
+sudo apt-get update -y
+sudo apt-get install -y libgl1 libglib2.0-0 || sudo apt-get install -y libgl1 libglib2.0-0t64
+
 echo "Creating virtual environment..."
 python3 -m venv venv
 # shellcheck disable=SC1091
