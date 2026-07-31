@@ -5,6 +5,15 @@ files:
   - source: /
     destination: /home/ubuntu/parserTool
 
+permissions:
+  - object: /home/ubuntu/parserTool
+    owner: ubuntu
+    group: ubuntu
+    mode: 755
+    type:
+      - directory
+      - file
+
 hooks:
   BeforeInstall:
     - location: scripts/deploy/before_install.sh
