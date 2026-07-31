@@ -31,4 +31,7 @@ EOF
   echo "Created default .env"
 fi
 
+echo "Changing ownership to ubuntu..."
+chown -R ubuntu:ubuntu /home/ubuntu/parserTool
+
 echo "AfterInstall complete."
